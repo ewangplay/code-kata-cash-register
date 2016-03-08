@@ -1,5 +1,8 @@
 ## SuperMarket
 
+* Supermarket
+    - RegisterGoods(&Goods)
+
 * CashRegister
 	- ScanShoppingCart(&ShoppingCart)
 	- SettleGoods()

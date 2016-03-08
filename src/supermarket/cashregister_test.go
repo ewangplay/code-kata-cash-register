@@ -5,7 +5,18 @@ import (
     "os"
 )
 
+var t_supermarket *SuperMarket
+
 func TestMain(m *testing.M) {
+    var goods *Goods
+
+    //create one nwe supermarket
+    t_supermarket = NewSuperMarket()
+
+    //register goods 111
+    goods = NewGoods("111", "苹果", "斤", 5.5, "水果")
+    t_supermarket.RegisterGoods(goods)
+
     os.Exit(m.Run())
 }
 
