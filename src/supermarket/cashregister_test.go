@@ -10,6 +10,10 @@ func TestMain(m *testing.M) {
 }
 
 func TestSettleGoods(t *testing.T) {
+    cr := NewCashRegister()
+
+    cr.SettleGoods()
+
     t.Log("hello")
 }
 
