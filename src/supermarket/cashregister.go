@@ -12,3 +12,7 @@ func NewCashRegister() *CashRegister {
 func (this *CashRegister)SettleGoods() error {
     return nil
 }
+
+func (this *CashRegister) ScanShoppingCar(sc *ShoppingCart) error {
+    return nil
+}
