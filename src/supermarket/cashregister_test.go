@@ -17,6 +17,14 @@ func TestMain(m *testing.M) {
     goods = NewGoods("111", "苹果", "斤", 5.5, "水果")
     t_supermarket.RegisterGoods(goods)
 
+    //register goods 222
+    goods = NewGoods("222", "可乐", "瓶", 3.0, "饮料")
+    t_supermarket.RegisterGoods(goods)
+
+    //register goods 222
+    goods = NewGoods("333", "康师傅方便面", "袋", 4.5, "食品")
+    t_supermarket.RegisterGoods(goods)
+
     os.Exit(m.Run())
 }
 
