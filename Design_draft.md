@@ -2,8 +2,8 @@
 
 * CashRegister
 	- ScanShoppingCart(&ShoppingCart)
-	- SetPreferentials(&Preferentials)
 	- SettleGoods()
+	- SetPreferentials(&Preferentials)
 	
 * ShoppingCart
 	- AddGoods(GoodsBarCode, GoodsNum)
