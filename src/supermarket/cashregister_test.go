@@ -9,7 +9,7 @@ var t_cashregister *CashRegister
 
 func TestMain(m *testing.M) {
     //创建超市并登记商品
-    supermarket := NewSuperMarket()
+    supermarket := NewSuperMarket("没钱赚商店")
     supermarket.RegisterGoods(NewGoods("111", "苹果", "斤", 5.5, "水果"))
     supermarket.RegisterGoods(NewGoods("222", "可乐", "瓶", 3.0, "饮料"))
     supermarket.RegisterGoods(NewGoods("333", "康师傅方便面", "袋", 4.5, "食品"))
