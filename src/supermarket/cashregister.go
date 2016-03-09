@@ -12,10 +12,7 @@ func NewCashRegister(belongs_supermarket *SuperMarket) *CashRegister {
     }
 }
 
-func (this *CashRegister)SettleGoods() error {
+func (this *CashRegister)SettleGoods(sc *ShoppingCart) error {
     return nil
 }
 
-func (this *CashRegister) ScanShoppingCar(sc *ShoppingCart) error {
-    return nil
-}
