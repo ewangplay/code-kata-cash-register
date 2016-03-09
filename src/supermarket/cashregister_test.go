@@ -29,7 +29,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestSettleGoods(t *testing.T) {
-    cr := NewCashRegister()
+    cr := NewCashRegister(t_supermarket)
 
     sc := NewShoppingCart() 
     sc.AddGoods("111", 3)
