@@ -54,8 +54,13 @@ func (this *CashRegister) SettleGoods(shoppingcart *ShoppingCart) error {
 				fmt.Printf("名称: %v, 数量：%v%v, 单价：%v(元), 小计: %v(元)\n", goods.Name, goods_num, goods.QuantityUnit, goods.UnitPrice, amount)
 
 			case BUY_TWO_GET_ONE_FREE:
+                free_num := int(goods_num / 3)
+				amount = float32(goods_num - free_num) * goods.UnitPrice
+				fmt.Printf("名称: %v, 数量：%v%v, 单价：%v(元), 小计: %v(元)\n", goods.Name, goods_num, goods.QuantityUnit, goods.UnitPrice, amount)
 
 			case DISCOUNT_95:
+				amount = float32(goods_num) * goods.UnitPrice * 0.95
+				fmt.Printf("名称: %v, 数量：%v%v, 单价：%v(元), 小计: %v(元)\n", goods.Name, goods_num, goods.QuantityUnit, goods.UnitPrice, amount)
 
 			}
 
