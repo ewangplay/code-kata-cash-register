@@ -14,6 +14,10 @@ func NewCashRegister(belongs_supermarket *SuperMarket) *CashRegister {
 	}
 }
 
+func (this *CashRegister) SetPreferentials(preferentials *Preferentials) error {
+    return nil
+}
+
 /*
 ***<没钱赚商店>购物清单***
 名称：可口可乐，数量：3瓶，单价：3.00(元)，小计：9.00(元)

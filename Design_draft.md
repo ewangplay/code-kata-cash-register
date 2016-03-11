@@ -1,15 +1,16 @@
 ## SuperMarket
 
 * Supermarket
-    - RegisterGoods(&Goods)
+    + GetName()
+    + RegisterGoods(&Goods)
 
 * CashRegister
-	- ScanShoppingCart(&ShoppingCart)
-	- SettleGoods()
-	- SetPreferentials(&Preferentials)
+	+ SettleGoods(&Shoppingcart)
+	+ SetPreferentials(&Preferentials)
 	
 * ShoppingCart
-	- AddGoods(GoodsBarCode, GoodsNum)
+	+ AddGoods(GoodsBarCode, GoodsNum)
+    + GetGoodsList()
 	
 * Goods
 	- Name
@@ -19,6 +20,6 @@
 	- BarCode
 
 * Preferentials
-	- AddPreferential(id，priority，goods_barcode_list)
+	+ AddPreferential(id，priority，goods_barcode_list)
 		- BUY_TWO_GET_ONE_FREE
 		- 95_DISCOUNT
