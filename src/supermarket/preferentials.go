@@ -1,19 +1,24 @@
 package supermarket
 
+type PREFERENTIAL_ID int
+
 const (
-    BUY_TWO_GET_ONE_FREE = 1
-    DISCOUNT_95 = 2
+	NO_PREFERENTIAL PREFERENTIAL_ID = iota
+	BUY_TWO_GET_ONE_FREE
+	DISCOUNT_95
 )
 
 type Preferentials struct {
 }
 
 func NewPreferentials() *Preferentials {
-    return &Preferentials{
-    }
+	return &Preferentials{}
 }
 
-func (this *Preferentials) AddPreferential(id int, priority int, goods_barcode_list []string) error {
-    return nil
+func (this *Preferentials) AddPreferential(id PREFERENTIAL_ID, priority int, goods_barcode_list []string) error {
+	return nil
 }
 
+func (this *Preferentials) QueryGoodsPreferential(goods_barcode string) PREFERENTIAL_ID {
+    return NO_PREFERENTIAL
+}

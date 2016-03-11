@@ -6,6 +6,7 @@ import (
 
 type CashRegister struct {
 	belongs_supermarket *SuperMarket
+	preferentials       *Preferentials
 }
 
 func NewCashRegister(belongs_supermarket *SuperMarket) *CashRegister {
@@ -15,7 +16,8 @@ func NewCashRegister(belongs_supermarket *SuperMarket) *CashRegister {
 }
 
 func (this *CashRegister) SetPreferentials(preferentials *Preferentials) error {
-    return nil
+	this.preferentials = preferentials
+	return nil
 }
 
 /*
@@ -32,20 +34,37 @@ func (this *CashRegister) SettleGoods(shoppingcart *ShoppingCart) error {
 
 	fmt.Printf("***<%v>购物清单***\n", this.belongs_supermarket.GetName())
 
-    var sum float32
+	var sum float32
 
 	for goods_barcode, goods_num := range goods_list {
 		goods := this.belongs_supermarket.QueryGoods(goods_barcode)
-		if goods != nil {
-            amount := float32(goods_num)*goods.UnitPrice
-			fmt.Printf("名称: %v, 数量：%v%v, 单价：%v(元), 小计: %v(元)\n", goods.Name, goods_num, goods.QuantityUnit, goods.UnitPrice, amount)
 
-            sum += amount
+		if goods != nil {
+
+            goods_preferential_id := NO_PREFERENTIAL
+			if this.preferentials != nil {
+				goods_preferential_id = this.preferentials.QueryGoodsPreferential(goods_barcode)
+			}
+
+			var amount float32
+
+			switch goods_preferential_id {
+			case NO_PREFERENTIAL:
+				amount = float32(goods_num) * goods.UnitPrice
+				fmt.Printf("名称: %v, 数量：%v%v, 单价：%v(元), 小计: %v(元)\n", goods.Name, goods_num, goods.QuantityUnit, goods.UnitPrice, amount)
+
+			case BUY_TWO_GET_ONE_FREE:
+
+			case DISCOUNT_95:
+
+			}
+
+			sum += amount
 		}
 	}
 
 	fmt.Println("----------------------")
-    fmt.Printf("总计：%v(元)\n", sum)
+	fmt.Printf("总计：%v(元)\n", sum)
 	fmt.Println("**********************")
 
 	return nil
